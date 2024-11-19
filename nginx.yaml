@@ -38,17 +38,17 @@ spec:
         app: nginx
     spec:
       volumes:
-      - name: nginx-config-vol
+      - name: nginx-volume
         configMap:
           name: nginx-config
       containers:
-      - name: nginx-container
+      - name: nginx
           image: nginx:latest
           imagePullPolicy: Always
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: nginx-config-vol 
+        - name: nginx-volume
           mountPath: /etc/nginx/
 ---
 apiVersion: v1
