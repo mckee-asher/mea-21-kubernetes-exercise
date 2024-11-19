@@ -28,28 +28,28 @@ spec:
   selector:
     matchLabels:
       app: nginx
-    strategy:
-      rollingUpdate:
-        maxSurge: 10%
-        maxUnavailable: 25%
-    template:
-      metadata:
-        labels:
-          app: nginx
-      spec:
-        volumes:
-        - name: nginx-config-vol
-          configMap:
-            name: nginx-config
-        containers:
-        - name: nginx-container
-           image: nginx:latest
-           imagePullPolicy: Always
-          ports:
-          - containerPort: 80
-          volumeMounts:
-          - name: nginx-config-vol 
-            mountPath: /etc/nginx/
+  strategy:
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      volumes:
+      - name: nginx-config-vol
+        configMap:
+          name: nginx-config
+      containers:
+      - name: nginx-container
+          image: nginx:latest
+          imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config-vol 
+          mountPath: /etc/nginx/
 ---
 apiVersion: v1
 kind: Service
