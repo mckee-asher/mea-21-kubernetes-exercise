@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-deployment
+  name: flask-deployment-project
   labels:
     app: flask-app-project
 spec:
@@ -15,7 +15,7 @@ spec:
         app: flask-app-project
     spec:
       containers:
-        - name: flask-container
+        - name: flask-container-project
           image: amckee457/flask-app-project:latest
           ports:
             - containerPort: 5500
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-service
+  name: flask-service-project
 spec:
   type: ClusterIP
   selector:
-    app: flask-app
+    app: flask-app-project
   ports:
     - protocol: TCP
       port: 5500
