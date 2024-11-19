@@ -12,7 +12,7 @@ data:
           proxy_pass http://flask-service:5500;
         }
         location /hello {
-          return 200 "Asher is the best";
+          return 200 "Hello World";
         }
         location /info {
           return 200 "Asher is the best";
